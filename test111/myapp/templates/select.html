@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/layui/css/layui.css">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <title>查询结果</title>
+</head>
+<body>
+<script type="text/javascript" src="static/layui/layui.js"></script>
+
+<script>
+    console.log("select.html")
+</script>
+<table class="layui-table" width="500" cellpadding="5" align="center" border="1" cellspacing="0">
+
+            <th align="center" colspan="4">用户信息</th>
+            <tr>
+                <td>id</td>
+                <td>name</td>
+                <td>score</td>
+                <td>操作</td>
+            </tr>
+            {% for item in user %}
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.score}}</td>
+                <td><a class="layui-btn layui-btn-primary layui-border-blue" href='/alter?id={{item.id}}&name={{ item.name }}&score={{item.score}}'>编辑</a>
+                <a class="layui-btn layui-btn-primary layui-border-red" href="/delete?id={{ item.id }}">删除</a> </td>
+            </tr>
+            {% endfor %}
+        </table>
+</body>
+</html>

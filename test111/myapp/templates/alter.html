@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/layui/css/layui.css">
+    <title>修改</title>
+</head>
+<body>
+<script type="text/javascript" src="static/layui/layui.js"></script>
+
+<div class="layui-main">
+    <div class="site-content">
+        <br><br>
+        <h1 class="site-h1">修改信息</h1>
+        <br><br>
+        <form class="layui-form" action="alter" method="post">
+            <input type="hidden" name = 'id' value="{{user[0]}}">
+            <div class="layui-form-item">
+                <label class="layui-form-label">姓名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="name" required lay-verify="required" placeholder="请输入姓名"
+                           autocomplete="off"
+                           class="layui-input" value="{{user[1]}}">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">分数</label>
+                <div class="layui-input-block">
+                    <input type="number" name="score" required lay-verify="required" placeholder="请输入分数"
+                           autocomplete="off"
+                           class="layui-input" value="{{user[2]}}">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/layui/css/layui.css">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <title>首页</title>
+</head>
+<body>
+<script type="text/javascript" src="static/layui/layui.js"></script>
+
+<script type="text/javascript">
+    $(function (){
+        $("#idvalue").on("input",function (){
+            console.log($(this).val());
+            $("#selectbtn").attr("href","/?id="+$(this).val());
+            })
+    })
+</script>
+
+<div align="center" >
+    <br>
+    <a class="layui-btn layui-btn-primary layui-border-orange" href="insert_page">添加用户</a>
+    <div class="layui-form-item">
+        <label class="layui-form-label">查询用户</label>
+        <div class="layui-input-inline">
+            <input id="idvalue" required lay-verify="required" placeholder="请输入id" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-form-mid ">
+            <a id="selectbtn" class="layui-btn layui-btn-primary layui-border-orange" >查询</a>
+        </div>
+    </div>
+    <br>
+    <br>
+    <table class="layui-table" width="500" cellpadding="5" align="center" border="1" cellspacing="0">
+        <th align="center" colspan="4">用户信息</th>
+        <tr>
+            <td>id</td>
+            <td>name</td>
+            <td>score</td>
+            <td>操作</td>
+        </tr>
+        {% for item in user_list %}
+        <tr>
+            <td>{{item[0]}}</td>
+            <td>{{item[1]}}</td>
+            <td>{{item[2]}}</td>
+            <td><a class="layui-btn layui-btn-primary layui-border-blue" href='/alter?id={{item[0]}}&name={{ item[1]}}&score={{item[2]}}'>编辑</a>
+                <a class="layui-btn layui-btn-primary layui-border-red" href="/delete?id={{ item[0]}}">删除</a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+</div>
+</body>
+</html>
